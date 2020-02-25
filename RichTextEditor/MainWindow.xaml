@@ -1,0 +1,39 @@
+﻿<Window x:Class="RichTextEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RichTextEditor"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Background="DarkGray">
+    <!-- <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed" />
+        <CommandBinding Command="ApplicationCommands.Save" Executed="Save_Executed" />
+    </Window.CommandBindings> -->
+    <Grid>
+        <DockPanel>
+            <ToolBar DockPanel.Dock="Top">
+                <Button Command="ApplicationCommands.Open">
+                    <Image Source="/RichTextEditor;component/Images/folder.png" Width="16" Height="16" />
+                </Button>
+                <Button Command="ApplicationCommands.Save">
+                    <Image Source="/RichTextEditor;component/Images/save.png" Width="16" Height="16" />
+                </Button>
+                <Separator />
+                <ToggleButton Command="EditingCommands.ToggleBold" Name="btnBold">
+                    <Image Source="/RichTextEditor;component/Images/bold.png" Width="16" Height="16" />
+                </ToggleButton>
+                <ToggleButton Command="EditingCommands.ToggleItalic" Name="btnItalic">
+                    <Image Source="/RichTextEditor;component/Images/italic.png" Width="16" Height="16" />
+                </ToggleButton>
+                <ToggleButton Command="EditingCommands.ToggleUnderline" Name="btnUnderline">
+                    <Image Source="/RichTextEditor;component/Images/underline.png" Width="16" Height="16" />
+                </ToggleButton>
+                <Separator />
+                <ComboBox Name="cmbFontFamily" Width="150" SelectionChanged="cmbFontFamily_SelectionChanged" />
+                <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" />
+            </ToolBar>
+            <RichTextBox Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged" />
+        </DockPanel>
+    </Grid>
+</Window>
