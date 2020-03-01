@@ -5,35 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RichTextEditor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="DarkGray">
-    <!-- <Window.CommandBindings>
-        <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed" />
-        <CommandBinding Command="ApplicationCommands.Save" Executed="Save_Executed" />
-    </Window.CommandBindings> -->
+        Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <DockPanel>
-            <ToolBar DockPanel.Dock="Top">
-                <Button Command="ApplicationCommands.Open">
-                    <Image Source="/RichTextEditor;component/Images/folder.png" Width="16" Height="16" />
-                </Button>
-                <Button Command="ApplicationCommands.Save">
-                    <Image Source="/RichTextEditor;component/Images/save.png" Width="16" Height="16" />
-                </Button>
-                <Separator />
-                <ToggleButton Command="EditingCommands.ToggleBold" Name="btnBold">
-                    <Image Source="/RichTextEditor;component/Images/bold.png" Width="16" Height="16" />
-                </ToggleButton>
-                <ToggleButton Command="EditingCommands.ToggleItalic" Name="btnItalic">
-                    <Image Source="/RichTextEditor;component/Images/italic.png" Width="16" Height="16" />
-                </ToggleButton>
-                <ToggleButton Command="EditingCommands.ToggleUnderline" Name="btnUnderline">
-                    <Image Source="/RichTextEditor;component/Images/underline.png" Width="16" Height="16" />
-                </ToggleButton>
-                <Separator />
-                <ComboBox Name="cmbFontFamily" Width="150" />
-                <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" />
-            </ToolBar>
-            <RichTextBox Name="rtbEditor" />
-        </DockPanel>
     </Grid>
 </Window>
