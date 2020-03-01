@@ -10,7 +10,7 @@ namespace RichTextEditor.ViewModels
 
         public TextEditorViewModel()
         {
-            Editor = new TextEditor { TextBoxText = "Sample Text" };
+            Editor = new TextEditor();
         }
 
         private ICommand mUpdater;

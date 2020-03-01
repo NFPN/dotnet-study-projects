@@ -1,12 +1,13 @@
 ﻿using System.ComponentModel;
+using System.Windows.Controls;
 
 namespace RichTextEditor.Models
 {
     public class TextEditor
     {
-        private string textBoxText;
+        private RichTextBox textBoxText;
 
-        public string TextBoxText
+        public RichTextBox TextBoxText
         {
             get { return textBoxText; }
             set

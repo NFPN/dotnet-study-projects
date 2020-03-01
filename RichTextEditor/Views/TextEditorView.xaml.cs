@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using RichTextEditor.ViewModels;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,9 +16,18 @@ namespace RichTextEditor.Views
     /// </summary>
     public partial class TextEditorView : Window
     {
-        public TextEditorView()
+        public TextEditorView() => InitialSetup();
+
+        public TextEditorView(object context)
+        {
+            InitialSetup();
+            DataContext = context;
+        }
+
+        private void InitialSetup()
         {
             InitializeComponent();
+            DataContext = new TextEditorViewModel();
             cmbFontFamily.ItemsSource = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
             cmbFontSize.ItemsSource = new List<double>() { 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
         }
