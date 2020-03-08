@@ -30,10 +30,10 @@
                     <Image Source="/RichTextEditor;component/Images/underline.png" Width="16" Height="16" />
                 </ToggleButton>
                 <Separator />
-                <ComboBox Name="cmbFontFamily" Width="150" />
-                <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" />
+                <ComboBox Name="cmbFontFamily" Width="150" SelectionChanged="SelectionFontFamilyChanged" />
+                <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="TextFontSizeChanged" />
             </ToolBar>
-            <RichTextBox Name="rtbEditor" />
+            <RichTextBox Name="rtbEditor" SelectionChanged="EditorSelectionChanged" />
         </DockPanel>
     </Grid>
 </Window>
