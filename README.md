@@ -1,3 +1,3 @@
 # Study Projects
 
-This is a solution for random projects or problem solving challenges 
+This is a solution for studying technologies, skill improvement and problem solving
