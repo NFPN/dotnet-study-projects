@@ -17,6 +17,7 @@ namespace CompetetiveProgrammingTests
                 new WatermelonSolver(),
                 new WayTooLongWordsSolver(),
                 new ATeamSolver(),
+                new NextRound(),
             });
 
             problemSolvers.LastOrDefault().Execute();
