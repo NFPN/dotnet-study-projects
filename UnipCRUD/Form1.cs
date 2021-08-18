@@ -5,14 +5,21 @@ namespace UnipCRUD
 {
     public partial class MainForm : Form
     {
-        private readonly DBConnection connection = new DBConnection();
+        private readonly DatabaseConnectionManager connectionManager = new DatabaseConnectionManager();
 
         public MainForm() => InitializeComponent();
 
         private void BtnConnection_Click(object sender, System.EventArgs e)
-            => connection.CreateConnection();
+        {
+            using (var test = connectionManager.GetConnection())
+            {
+                test.Open();
+            }
+        }
 
         private void BtnCloseConnection_Click(object sender, System.EventArgs e)
-            => connection.Disconnect();
+        {
+            connectionManager.Disconnect();
+        }
     }
 }
