@@ -17,7 +17,7 @@ namespace UnipCRUD.Database
         {
             CurrentConnection.ConnectionString = ConnectionString;
             Context = new MainDBContext(CurrentConnection);
-            Context.Database.CreateIfNotExists();
+            Context.Database.CreateIfNotExists(); // TODO: Remove this & Create a migration project
         }
 
         public DbConnection GetConnection()
