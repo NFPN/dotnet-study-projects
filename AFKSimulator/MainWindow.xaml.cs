@@ -61,6 +61,10 @@ namespace AFKSimulator
         private void RunSimulation()
         {
             var window = GetWindow("FINAL FANTASY XIV");
+
+            if (window == IntPtr.Zero)
+                return;
+
             _ = ShowWindow(window, ShowWindowEnum.ShowNoActivate);
             _ = SetForegroundWindow(window);
 
