@@ -17,7 +17,7 @@ namespace AFKSimulator
     {
         private readonly DispatcherTimer timer = new();
         private readonly InputSimulator simulator = new();
-        private IntPtr currentWindow = IntPtr.Zero;
+        private IntPtr simulatorWindow = IntPtr.Zero;
         public bool isRunning;
 
         [DllImport("user32.dll")]
@@ -33,19 +33,22 @@ namespace AFKSimulator
         public MainWindow()
         {
             InitializeComponent();
-            
+
             timer.Tick += new EventHandler(Timer_Tick);
             timer.Start();
+
+            comboSwitchWindow.ItemsSource = Enum.GetNames(typeof(SwitchWindows));
+            comboSwitchWindow.SelectedItem = comboSwitchWindow.Items[^1];
+            comboSwitchWindow.IsEnabled = false;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
             var rand = new Random();
 
-            if (ushort.TryParse(txtBoxRange.Text, out var result))
-                timer.Interval = new TimeSpan(0, 0, rand.Next(1, result));
-            else
-                timer.Interval = new TimeSpan(0, 0, rand.Next(1, 60));
+            timer.Interval = ushort.TryParse(txtBoxRange.Text, out var result) ?
+                new TimeSpan(0, 0, rand.Next(1, result)) :
+                new TimeSpan(0, 0, rand.Next(1, 60));
 
             if (isRunning)
                 RunSimulation();
@@ -53,13 +56,18 @@ namespace AFKSimulator
 
         private void ButtonStart_Click(object sender, RoutedEventArgs e)
         {
-            currentWindow = GetForegroundWindow();
+            simulatorWindow = GetForegroundWindow();
             isRunning = !isRunning;
             ButtonStart.Content = isRunning ? "Stop" : "Start";
         }
 
         private void RunSimulation()
         {
+            var currentWindow = simulatorWindow;
+
+            if (comboSwitchWindow.SelectedItem.ToString() == SwitchWindows.Current.ToString())
+                currentWindow = GetForegroundWindow();
+
             var window = GetWindow("FINAL FANTASY XIV");
 
             if (window == IntPtr.Zero)
@@ -77,8 +85,11 @@ namespace AFKSimulator
 
             if (checkSwitch.IsChecked.GetValueOrDefault())
             {
-                _ = ShowWindow(currentWindow, ShowWindowEnum.ShowNoActivate);
-                _ = SetForegroundWindow(currentWindow);
+                if (comboSwitchWindow.SelectedItem.ToString() != SwitchWindows.None.ToString())
+                {
+                    _ = ShowWindow(currentWindow, ShowWindowEnum.ShowNoActivate);
+                    _ = SetForegroundWindow(currentWindow);
+                }
             }
         }
 
@@ -93,5 +104,17 @@ namespace AFKSimulator
 
         public VirtualKeyCode GetRandomKey(IEnumerable<VirtualKeyCode> virtualKeys)
             => virtualKeys.OrderBy(e => Guid.NewGuid()).FirstOrDefault();
+
+        private void checkSwitch_Checked(object sender, RoutedEventArgs e)
+        {
+            comboSwitchWindow.IsEnabled = true;
+            UpdateLayout();
+        }
+
+        private void checkSwitch_Unchecked(object sender, RoutedEventArgs e)
+        {
+            comboSwitchWindow.IsEnabled = false;
+            UpdateLayout();
+        }
     }
 }

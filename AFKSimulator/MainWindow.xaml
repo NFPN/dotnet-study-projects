@@ -9,8 +9,9 @@
     <Grid>
 
         <Label Content="Seconds range" HorizontalAlignment="Left" Margin="50,50,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox x:Name="txtBoxRange" HorizontalAlignment="Left" Margin="143,54,0,0" Text="10" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <CheckBox ToolTip="Check this to save computer resources" x:Name="checkSwitch" Content="Switch window" HorizontalAlignment="Left" Margin="50,81,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBox x:Name="txtBoxRange" HorizontalAlignment="Left" Margin="162,54,0,0" Text="10" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <CheckBox ToolTip="Check this to save computer resources" x:Name="checkSwitch" Content="Switch window" HorizontalAlignment="Left" Margin="50,88,0,0" VerticalAlignment="Top" Foreground="White" Checked="checkSwitch_Checked" Unchecked="checkSwitch_Unchecked"/>
         <Button x:Name="ButtonStart" Content="Start" HorizontalAlignment="Center" Margin="0,127,0,0" VerticalAlignment="Top" Width="120" Height="25" Click="ButtonStart_Click"/>
+        <ComboBox x:Name="comboSwitchWindow" HorizontalAlignment="Left" Margin="162,81,0,0" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>
