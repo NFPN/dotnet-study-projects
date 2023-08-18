@@ -1,3 +1,3 @@
-# Study Projects
+# .Net Study Projects
 
-This is a solution for studying technologies, skill improvement and problem solving
+This is a solution for studying technologies, skill improvement and problem solving in C#
