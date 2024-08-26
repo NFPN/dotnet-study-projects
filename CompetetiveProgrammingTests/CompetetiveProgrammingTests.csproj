@@ -43,13 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ProblemSolution\ProblemSolvers\lv800\NextRound.cs" />
+    <Compile Include="ProblemSolution\ProblemSolvers\CodeForces\NextRound.cs" />
+    <Compile Include="ProblemSolution\ProblemSolvers\CriaScript\NumberToSortedList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ProblemSolution\ProblemSolvers\lv800\ATeamSolver.cs" />
+    <Compile Include="ProblemSolution\ProblemSolvers\CodeForces\ATeamSolver.cs" />
     <Compile Include="ProblemSolution\Base\ISolveProblem.cs" />
-    <Compile Include="ProblemSolution\ProblemSolvers\lv800\Watermelon.cs" />
-    <Compile Include="ProblemSolution\ProblemSolvers\lv800\WayTooLongWords.cs" />
+    <Compile Include="ProblemSolution\ProblemSolvers\CodeForces\Watermelon.cs" />
+    <Compile Include="ProblemSolution\ProblemSolvers\CodeForces\WayTooLongWords.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig">

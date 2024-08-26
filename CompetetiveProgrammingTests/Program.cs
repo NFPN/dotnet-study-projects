@@ -1,12 +1,12 @@
 ﻿using CompetetiveProgrammingTests.Base;
 using CompetetiveProgrammingTests.ProblemSolution;
+using CompetetiveProgrammingTests.ProblemSolution.ProblemSolvers.CriaScript;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace CompetetiveProgrammingTests
 {
-    public class Program
+    public static class Program
     {
         private static readonly List<ISolveProblem> problemSolvers = new List<ISolveProblem>();
 
@@ -18,9 +18,12 @@ namespace CompetetiveProgrammingTests
                 new WayTooLongWordsSolver(),
                 new ATeamSolver(),
                 new NextRound(),
+                new NumberToSortedList(),
             });
 
-            problemSolvers.LastOrDefault().Execute();
+            //problemSolvers.LastOrDefault().Execute();
+
+            Console.WriteLine(new NumberToSortedList().Execute());
             Console.ReadKey();
         }
     }
